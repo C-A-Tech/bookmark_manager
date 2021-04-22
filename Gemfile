@@ -13,5 +13,6 @@ group :development, :test do
   gem 'capybara'
   gem 'rubocop', '~> 1.13'
   gem 'rack'
+  gem 'webrick', '~> 1.7'
   gem 'pg'
 end
