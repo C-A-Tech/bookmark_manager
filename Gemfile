@@ -15,4 +15,5 @@ group :development, :test do
   gem 'rack'
   gem 'webrick', '~> 1.7'
   gem 'pg'
+  gem 'launchy', '~> 2.5'
 end

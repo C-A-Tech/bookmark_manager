@@ -4,6 +4,7 @@ require './lib/bookmark'
 
 class BookmarkManager < Sinatra::Base
 	configure :development do 
+    enable :method_override
 		register Sinatra::Reloader
 	end
 
@@ -21,11 +22,14 @@ class BookmarkManager < Sinatra::Base
 	end
 
 	post '/bookmarks' do
-		Bookmark.create(params[:url], params[:title])
+		Bookmark.create(params[:url], params[:title]) 
 		redirect('/bookmarks')
-		fake_bookmark = Bookmark.new(12, 'Google', 'http://google.com')
-		p fake_bookmark
 	end
+
+  delete '/bookmarks/:id' do
+    Bookmark.delete(params[:id])
+    redirect('/bookmarks')
+  end
 
 	run! if app_file == $0
 end
